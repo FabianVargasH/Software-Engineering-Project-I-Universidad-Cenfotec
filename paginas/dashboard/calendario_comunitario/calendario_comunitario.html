@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendario Comunitario</title>
+    <link rel="stylesheet" href="./../../../css/estilos.css"/>
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="contenedor_pagina">
+        <header class="encabezado">
+            <h1>Comunidad-Conectada</h1>
+            <nav class="contenedor_enlace_inicio">
+                <a class="enlace_inicio" href="../dashboard.html"> ← Volver al inicio</a> 
+            </nav>
+        </header>
+        <main class="contenedor_principal contenido_principal" style="display: flex; flex-wrap: wrap; justify-content: space-between; margin-top: 30px;">
+            <!-- Sección del calendario-->
+             
+            <section style="flex: 1; min-width: 300px; margin-right: 20px;">
+                <div id="calendario" style="width: 100%; height: 400px;"></div>
+            </section>
+
+            <!-- Formulario para proponer evento -->
+            <section style="flex: 1; min-width: 300px;">
+                <div class="contenedor_formulario">
+                    <h2 class="titulo_seccion">Proponer evento</h2>
+
+                    <form id="formEvento" class="formulario_principal">
+                        <label class="etiqueta_formulario" for="titulo">Título del evento</label>
+                        <input class="txt_campo" type="text" id="titulo" name="titulo" required>
+
+                        <label class="etiqueta_formulario" for="fecha">Fecha</label>
+                        <input class="txt_campo" type="date" id="fecha" name="fecha" required>
+
+                        <label class="etiqueta_formulario" for="hora">Hora</label>
+                        <input class="txt_campo" type="time" id="hora" name="hora" required>
+
+                        <label class="etiqueta_formulario" for="ubicacion">Ubicación</label>
+                        <input class="txt_campo" type="text" id="ubicacion" name="ubicacion" required>
+
+                        <label class="etiqueta_formulario" for="descripcion">Descripción</label>
+                        <textarea class="txt_campo" id="descripcion" name="descripcion" rows="3" required></textarea>
+
+                        <button type="submit" class="btn_enviar">Enviar</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <footer class="pie_pagina">
+            <p>@PCode</p>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+     <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      axios.defaults.baseURL = 'http://localhost:3000';
+      axios.defaults.headers.common['Content-Type'] = 'application/json';
+    </script>
+ <!-- Js que usa el Axios -->
+    <script src="../../../js/calendario.js"></script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de emprendimientos</title>
+    <link rel="stylesheet" href="./../../../css/estilos.css">
+</head>
+<body>
+    <div class="contenedor_pagina">
+        <div class="contenido_pagina">
+            <header class="encabezado">
+                <h1>Comunidad-Conectada</h1>
+                <div class="contenedor_enlace_inicio">
+                    <a href="./../dashboard.html" class="enlace_inicio"> ← Volver al inicio</a>
+                </div>
+            </header>
+            <!-- Tabs -->
+            <div class="tab-container">
+                <button href="#" class="tab">
+                    <div class="enlace_navegacion">
+                        <h2><a href="./../emprendimientos/lista_publica.html">Lista de Emprendimientos</a></h2>
+                    </div>
+                </button>
+                <button href="#" class="tab">
+                    <div class="enlace_navegacion">
+                        <h2><a href="/paginas/dashboard/emprendimientos/perfil.html">Creación de Emprendimientos</a></h2>
+                    </div>
+                </button>
+            </div>
+            <main class="contenido_principal">
+                <div class="contenedor_principal">
+                    <div class="titulo_principal">
+                        <h2>Emprendimientos</h2>
+                    </div>
+
+                    <!-- Formulario Crear Emprendimiento -->
+                    <div class="contenedor_formulario" style="margin-bottom: 30px;">
+                        <form id="formulario_principal">
+                            <h2 class="titulo_principal">¡Crea tú Emprendimiento!</h2>
+                            
+                            <div class="seccion_formulario">
+                                <label class="etiqueta_formulario" for="txtNombreCompleto">Nombre del negocio*</label>
+                                <input type="text" class="txt_campo" id="txtNombreCompleto" name="nombre_negocio" required>
+                                <span class="error-message" aria-live="polite"></span>
+                            </div>
+
+                            <div class="seccion_formulario">
+                                <label class="etiqueta_formulario" for="descripcion_negocio">Descripción del negocio</label>
+                                <textarea class="txt_campo" id="descripcion_negocio" name="descripcion_negocio" rows="3"></textarea>
+                            </div>
+
+                            <div class="enlace_navegacion">
+                                <button type="submit" id="btnRegistrarse" class="btn_primario">Crear Emprendimiento</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Formulario Actualizar Emprendimiento -->
+                    <div class="contenedor_formulario" style="margin-bottom: 30px;">
+                        <form id="formulario_principal1">
+                            <h2 class="titulo_principal">¡Actualiza tú Emprendimiento!</h2>
+                            
+                            <div class="seccion_formulario">
+                                <select class="txt_campo">
+                                    <option value="" selected disabled>Emprendimiento</option>
+                                    <option value="1">Option 1</option>
+                                    <option value="2">Option 2</option>
+                                    <option value="3">Option 3</option>
+                                    <option value="4">Option 4</option>
+                                </select>
+                            </div>
+
+                            <div class="seccion_formulario">
+                                <label class="etiqueta_formulario">Agrega productos:</label>
+                            </div>
+
+                            <div class="seccion_formulario">
+                                <label class="etiqueta_formulario" for="txtNombreCompleto1">Nombre del producto*</label>
+                                <input type="text" class="txt_campo" id="txtNombreCompleto1" name="nombre_producto" placeholder="0/50 caracteres" required maxlength="50">
+                                <span class="error-message" aria-live="polite"></span>
+                            </div>
+
+                            <div class="seccion_formulario">
+                                <label class="etiqueta_formulario" for="descripcion_producto">Descripción*</label>
+                                <textarea class="txt_campo" id="descripcion_producto" name="descripcion_producto" required placeholder="0/300 caracteres" maxlength="300" rows="3"></textarea>
+                                <span class="error-message" aria-live="polite"></span>
+                            </div>
+
+                            <div class="seccion_formulario">
+                                <label class="etiqueta_formulario" for="precio">Precio*</label>
+                                <input type="number" class="txt_campo" id="precio" name="precio" required value="0.000" step="1.000">
+                                <span class="error-message" aria-live="polite"></span>
+                            </div>
+
+                            <div class="enlace_navegacion">
+                                <button type="submit" id="btnRegistrarse1" class="btn_primario">Agregar Producto</button>
+                            </div>
+                        </form>
+                        <p class="enlace_navegacion">
+                            Nota: Todo producto agregado pasa por un sistema de aprobación/rechazo
+                        </p>
+                    </div>
+                    <!-- Sección Mis Productos -->
+                    <div class="contenedor_formulario">
+                        <h2 class="titulo_principal">Mis productos</h2>
+                        
+                        <div class="seccion_formulario">
+                            <select class="txt_campo">
+                                <option value="" selected disabled>Emprendimiento</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
+                                <option value="4">Option 4</option>
+                            </select>
+                        </div>
+                    
+                        <textarea class="txt_campo_jc_2" readonly rows="5">
+                        [Nombre producto]
+                            Descripción
+                            [precio]
+                            Condición</textarea>
+                        <div class="enlace_navegacion">
+                            <button type="button" class="btn_secundario">Eliminar</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <footer class="pie_pagina">
+            <p>@PCode</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/js/emprendimientos.js"></script>
+</body>
+</html>

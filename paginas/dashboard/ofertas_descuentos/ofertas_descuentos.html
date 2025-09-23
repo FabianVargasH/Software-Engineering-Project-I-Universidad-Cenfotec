@@ -1,0 +1,107 @@
+<!DOCTYPE html> <!-- Define el tipo de documento como HTML5 -->
+<html lang="es"> <!-- Establece el idioma del contenido como español -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Configura la codificación de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive en dispositivos móviles -->
+    <title>Ofertas y Descuentos</title> <!-- Título que aparece en la pestaña del navegador -->
+    
+    <!--Link css -->
+    <link rel="stylesheet" href="../../../css/estilos.css">
+</head>
+
+<body>
+    <!-- Contenedor general que agrupa todo el contenido visible de la página -->
+    <div class="contenedor_pagina">
+        <div class="contenido_pagina">
+
+            <!-- Sección de encabezado con el título del sitio y navegación -->
+            <header class="encabezado">
+                <h1>Comunidad-Conectada</h1>
+                <!-- Enlace que permite volver a la página principal -->
+                <nav class="contenedor_enlace_inicio">
+                    <a class="enlace_inicio" href="../dashboard.html">← Volver al inicio</a>
+                </nav>
+            </header>
+
+            <!-- Contenido principal de la página -->
+            <main class="contenido_principal">
+
+                <!-- Sección que muestra ejemplos de tarjetas de ofertas -->
+                <section>
+                    <div class="titulo_principal">
+                        <h2>Ofertas y descuentos disponibles:</h2>
+                    </div>
+
+                    <!-- Contenedor de tarjetas: visualiza 4 ofertas de ejemplo sin funcionalidad -->
+                    <div class="contenedor_tarjetas">
+                        <div class="tarjeta">
+                            <p>[Nombre Emprendimiento]<br>[Producto]<br>oferta o descuento<br>descripción<br>Condiciones<br>Duración</p>
+                        </div>
+                        <div class="tarjeta">
+                            <p>[Nombre Emprendimiento]<br>[Producto]<br>oferta o descuento<br>descripción<br>Condiciones<br>Duración</p>
+                        </div>
+                        <div class="tarjeta">
+                            <p>[Nombre Emprendimiento]<br>[Producto]<br>oferta o descuento<br>descripción<br>Condiciones<br>Duración</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Formulario para registrar una nueva oferta -->
+                <section class="contenedor_formulario_grande">
+                    <h3 class="titulo_seccion">¡Registra y crea tu oferta y descuento!</h3>
+
+                    <form class="formulario_principal" id="formOferta">
+
+                        <!-- Campo: Nombre del producto -->
+                        <label class="etiqueta_formulario" for="txtProducto">Nombre del producto</label>
+                        <input type="text" id="txtProducto" class="txt_campo">
+
+                        <!-- Campo: Descripción del producto -->
+                        <label class="etiqueta_formulario" for="txtDescripcion">Descripción producto</label>
+                        <textarea id="txtDescripcion" class="txt_campo"></textarea>
+
+                        <!-- Campo: Texto de la oferta o descuento -->
+                        <label class="etiqueta_formulario" for="txtOferta">Oferta o descuento</label>
+                        <input type="text" id="txtOferta" class="txt_campo">
+
+                        <!-- Campo: Descripción de la oferta o descuento -->
+                        <label class="etiqueta_formulario" for="txtDescripcionOferta">Descripción de la oferta o descuentos</label>
+                        <textarea id="txtDescripcionOferta" class="txt_campo"></textarea>
+
+                        <!-- Campo: Condiciones -->
+                        <label class="etiqueta_formulario" for="txtCondiciones">Condiciones</label>
+                        <input type="text" id="txtCondiciones" class="txt_campo">
+
+                        <!-- Campo: Duración de la oferta en días -->
+                        <label class="etiqueta_formulario" for="txtDuracion">Duración en días</label>
+                        <input type="text" id="txtDuracion" class="txt_campo">
+
+                        <!-- Botón para enviar el formulario -->
+                        <button type="submit" class="btn_primario">Crear</button>
+                    </form>
+
+                    <!-- Enlace para ir a la página de modificación de ofertas -->
+                    <p class="enlace_navegacion">
+                        ¿Quieres modificar tus ofertas y descuentos? 
+                        <a href="./modificar_ofertas.html">Entre aquí</a>
+                    </p>
+                </section>
+            </main>
+
+            <!-- Pie de página -->
+            <footer class="pie_pagina">
+                <p>@PCode</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Script que contiene la lógica para validar y procesar el formulario -->
+    <script src="../../../js/ofertas_descuentos.js"></script>
+
+    <!-- Librería externa para mostrar alertas visuales con estilo -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
+
+

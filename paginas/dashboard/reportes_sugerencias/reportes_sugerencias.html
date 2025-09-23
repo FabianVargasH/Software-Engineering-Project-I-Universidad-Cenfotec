@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8"> <!-- Codificación de caracteres en UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive en dispositivos móviles -->
+    <title>Reportes y Sugerencias</title> <!-- Título de la pestaña del navegador -->
+    <!--Link css -->
+    <link rel="stylesheet" href="../../../css/estilos.css">
+</head>
+
+<body>
+    <!-- Contenedor general de la página -->
+    <div class="contenedor_pagina">
+        <div class="contenido_pagina">
+            
+            <!-- Encabezado principal con nombre del sitio y navegación -->
+            <header class="encabezado">
+                <h1>Comunidad-Conectada</h1>
+                <nav class="contenedor_enlace_inicio">
+                    <a class="enlace_inicio" href="../dashboard.html">← Volver al inicio</a>
+                </nav>
+            </header>
+
+            <!-- Sección principal del contenido -->
+            <main class="contenido_principal">
+                
+                <!-- Título principal de la sección -->
+                <div class="titulo_principal">
+                    <h2>Reportes y Sugerencias</h2>
+                </div>
+
+                <!-- Contenedor de tarjetas dinámicas -->
+                <div class="contenedor_tarjetas">
+                    <div class="tarjeta" id="tarjeta-vacia">
+                        <p style="text-align: center; color: #666; font-style: italic;">
+                            Aún no hay reportes o sugerencias<br>
+                            <span style="font-size: 0.9em;">¡Sé el primero en crear uno!</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Sección de formulario para crear un nuevo reporte o sugerencia -->
+                <section class="contenedor_formulario_grande">
+                    <h3 class="titulo_seccion">Crea tu reporte o sugerencia</h3>
+
+                    <form class="formulario_principal" id="formReporte">
+
+                        <!-- Campo para seleccionar la fecha desde un calendario -->
+                        <label class="etiqueta_formulario" for="fechaReporte">Fecha del reporte</label>
+                        <input type="date" id="fechaReporte" class="txt_campo" required>
+
+                        <!-- Campo de descripción, con un límite de caracteres -->
+                        <label class="etiqueta_formulario" for="descripcion">Descripción</label>
+                        <textarea id="descripcion" class="txt_campo" maxlength="100"></textarea>
+
+                        <!-- Menú desplegable para seleccionar el nivel de prioridad -->
+                        <label class="etiqueta_formulario" for="prioridad">Nivel de prioridad</label>
+                        <select id="prioridad" class="txt_campo">
+                            <option value="">Seleccione nivel</option>
+                            <option value="nivel1">Nivel 1</option>
+                            <option value="nivel2">Nivel 2</option>
+                            <option value="nivel3">Nivel 3</option>
+                        </select>
+
+                        <!-- Opciones de visibilidad mediante botones de radio -->
+                        <label class="etiqueta_formulario">Visibilidad</label>
+                        <div style="margin-bottom: 15px;">
+                            <label><input type="radio" name="visibilidad" value="publico"> Público</label>
+                            <label style="margin-left: 20px;"><input type="radio" name="visibilidad" value="privado"> Privado</label>
+                        </div>
+
+                        <!-- Botón para enviar el formulario -->
+                        <button type="submit" class="btn_primario">Enviar</button>
+                    </form>
+                </section>
+            </main>
+
+            <!-- Pie de página -->
+            <footer class="pie_pagina">
+                <p>@PCode</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Inclusión del script de validación -->
+    <script src="../../../js/reportes_sugerencias.js"></script>
+    <!-- Inclusión de la librería SweetAlert2 para notificaciones -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
+
+

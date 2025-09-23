@@ -1,0 +1,76 @@
+<!DOCTYPE html> <!-- Especifica que el documento está en formato HTML5 -->
+<html lang="es"> <!-- Define el idioma principal de la página como español -->
+
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Hace el diseño adaptable a móviles -->
+    <title>Modificar Ofertas</title> <!-- Título de la página que aparece en la pestaña del navegador -->
+    <!--Link css -->
+    <link rel="stylesheet" href="../../../css/estilos.css">
+</head>
+
+<body>
+    <!-- Contenedor principal de toda la página -->
+    <div class="contenedor_pagina">
+        <div class="contenido_pagina">
+
+            <!-- Sección del encabezado con el nombre del sitio y botón de regreso al inicio -->
+            <header class="encabezado">
+                <h1>Comunidad-Conectada</h1>
+                <nav class="contenedor_enlace_inicio">
+                    <a class="enlace_inicio" href="../dashboard.html">← Volver al inicio</a>
+                </nav>
+            </header>
+
+            <!-- Área principal del contenido de la página -->
+            <main class="contenido_principal">
+
+                <!-- Título principal con el mismo estilo que otras páginas -->
+                <div class="titulo_principal">
+                    <h2>Modifica tus ofertas y descuentos</h2>
+                </div>
+
+                <!-- Formulario principal para editar ofertas existentes -->
+                <section class="contenedor_formulario_grande">
+                    <form class="formulario_principal" id="formModificarOferta">
+                        <!-- Selector de producto asociado -->
+                        <label class="etiqueta_formulario" for="selectProducto">Producto</label>
+                        <input type="text" id = "txtProducto" class="txt_campo">
+
+                        <!-- Campo para ingresar el nuevo descuento que se aplicará -->
+                        <label class="etiqueta_formulario" for="txtNuevoDescuento">Nuevo Descuento</label>
+                        <input type="text" id="txtNuevoDescuento" class="txt_campo">
+
+                        <!-- Campo para describir el producto u oferta actualizada -->
+                        <label class="etiqueta_formulario" for="txtDescripcion">Descripción</label>
+                        <textarea id="txtDescripcion" class="txt_campo"></textarea>
+
+                        <!-- Campo para indicar las condiciones que aplican a la oferta -->
+                        <label class="etiqueta_formulario" for="txtCondiciones">Condiciones</label>
+                        <input type="text" id="txtCondiciones" class="txt_campo">
+
+                        <!-- Campo para establecer la duración de la oferta en días -->
+                        <label class="etiqueta_formulario" for="txtDuracion">Duración</label>
+                        <input type="text" id="txtDuracion" class="txt_campo">
+
+                        <!-- Botón para enviar los datos del formulario -->
+                        <button type="submit" class="btn_primario">Modificar</button>
+                    </form>
+                </section>
+            </main>
+
+            <!-- Pie de página con autoría -->
+            <footer class="pie_pagina">
+                <p>@PCode</p>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Script JS que contiene la lógica de validación y comportamiento del formulario -->
+    <script src="../../../js/modificar_ofertas.js"></script>
+
+    <!-- Librería externa SweetAlert2 para mostrar alertas elegantes -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
+

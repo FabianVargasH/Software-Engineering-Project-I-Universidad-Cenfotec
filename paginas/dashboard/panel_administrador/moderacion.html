@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Administrativo</title>
+    <link rel="stylesheet" href="./../../../css/estilos.css">
+</head>
+<body>
+    <div class="contenedor_pagina">
+        <div class="contenido_pagina">
+            <header class="encabezado">
+                <h1>Comunidad-Conectada</h1>
+                <div class="landing_navegacion_header">
+                </div>
+                <div class="contenedor_enlace_inicio">
+                    <a href="./../dashboard.html" class="enlace_inicio"> ← Volver al inicio</a>
+                </div>
+            </header>
+            <main class="contenido_principal">
+                <div class="contenedor_principal">
+                    <h1 class="titulo_principal">Bienvenido, Administrador</h1>
+                    <!-- Nueva sección de Usuarios Registrados -->
+                    <div class="contenedor_formulario_grande">
+                        <div class="seccion_formulario">
+                            <h2 class="titulo_seccion">Usuarios registrados</h2>
+                            <div id="contenidoUsuarios">
+                                <p>fabian vargas | correo@gmail.com | Emprendedor</p>
+                                <p>Administrador | administrador@gmail.com | Administrador</p>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sección existente de transporte público -->
+                    <div class="contenedor_formulario_grande">
+                        <form class="formulario_principal" id="formularioAdmin">
+                            
+                            <div class="seccion_formulario">
+                                <h2 class="titulo_seccion">Información transporte público</h2>
+                                
+                                <label class="etiqueta_formulario">Ruta</label>
+                                <input type="text" class="txt_campo" id="txtRuta" placeholder="Ingrese la ruta (3-100 caracteres)">
+
+                                <label class="etiqueta_formulario">Recorrido</label>
+                                <textarea class="txt_campo" rows="4" id="txtRecorrido" placeholder="Ingrese el recorrido"></textarea>
+
+                                <label class="etiqueta_formulario">Tarifa</label>
+                                <input type="text" class="txt_campo" id="txtTarifa" placeholder="Ingrese la tarifa (números positivos)">
+
+                                <label class="etiqueta_formulario">Día</label>
+                                <input type="date" class="txt_campo" id="txtDia">
+
+                                <label class="etiqueta_formulario">Hora primer bus</label>
+                                <input type="time" class="txt_campo" id="txtHoraPrimerBus">
+
+                                <label class="etiqueta_formulario">Hora último bus</label>
+                                <input type="time" class="txt_campo" id="txtHoraUltimoBus">
+
+                                <label class="etiqueta_formulario">Frecuencia</label>
+                                <input type="text" class="txt_campo" id="txtFrecuencia" placeholder="Ingrese la frecuencia (ej: cada 30 minutos)">
+
+                                <label class="etiqueta_formulario">Contactos</label>
+                                <label class="etiqueta_formulario">Teléfono</label>
+                                <input type="tel" class="txt_campo" id="txtTelefono" placeholder="Ingrese el teléfono (8 dígitos)">
+
+                                <label class="etiqueta_formulario">Correo electrónico</label>
+                                <input type="email" class="txt_campo" id="txtCorreo" placeholder="Ingrese el correo electrónico">
+
+                                <button type="submit" class="btn_ancho_completo btn_primario" id="btnActualizar">Actualizar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </main>
+            <footer class="pie_pagina">
+                <p>@PCdode</p>
+            </footer>
+        </div>
+    </div>
+    <!--Axios-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Sweerta alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+    <!-- Validaciones -->
+    <script src="../../../js/administrador.js"></script>
+    <script src="../../../backend/controladores/controladorAdministrador.js"></script>
+</body>
+</html>

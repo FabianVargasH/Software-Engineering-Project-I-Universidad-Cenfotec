@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización de emprendimientos</title>
+    <link rel="stylesheet" href="./../../../css/estilos.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="encabezado">
+        <h1>Comunidad-Conectada</h1>
+        <div class="contenedor_enlace_inicio">
+            <a href="./../dashboard.html" class="enlace_inicio"> ← Volver al inicio</a>
+        </div>
+    </header>
+    <!-- Tabs -->
+    <div class="tab-container">
+        <button href="#" class="tab">
+            <div class="enlace_navegacion">
+                <h2><a href="./../emprendimientos/lista_publica.html">Lista de Emprendimientos</a></h2>
+            </div></button>
+        <button href="#" class="tab">
+        <div class="enlace_navegacion">
+            <h2><a href="./../emprendimientos/perfil.html">Creación de Emprendimientos</a></h2>
+        </div>
+    </div>
+    <div class="contenedor_pagina">
+        <div class="contenido_pagina">
+            <main class="contenido_principal">
+                <div class="contenedor_principal">
+                    <!-- Titulo -->
+                    <form id="formulario_crear" novalidate>
+                        <h2 class=titulo_principal>¡Explora y apoya los emprendimientos de tu comunidad!</h2>
+                    </form>
+                </div>
+                <!-- Sección principal -->
+                <div class="contenedor_formulario_lista_publica">
+                        <div class="seccion_formulario">
+                            <!-- Los emprendimientos se cargarán aquí dinámicamente -->
+                            
+                            <p class="enlace_navegacion">
+                                Explora los descuentos y ofertas de cada emprendimiento
+                            </p>
+                            <a href="../ofertas_descuentos/ofertas_descuentos.html" class="enlace_navegacion"><h2 class="titulo_principal">Aquí</h2></a>
+                        </div>
+                    </div>
+                </main>
+                <footer class="pie_pagina">
+                    <p>@PCode</p>
+                </footer>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="../../../js/emprendimientos_listaPublica.js"></script>
+</body>
+</html>
+
+

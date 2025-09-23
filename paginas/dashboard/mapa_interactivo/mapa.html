@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mapa de la comunidad</title>
+  <link rel="stylesheet" href="../../../css/estilos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+  <div class="contenedor_pagina">
+    <div class="contenido_pagina">
+     <header class="encabezado">
+          <h1>Comunidad-Conectada</h1>
+          <nav class="contenedor_enlace_inicio">
+              <a class="enlace_inicio" href="./../dashboard.html"> ← Volver al inicio</a> 
+          </nav>
+      </header>
+      <main class="contenido_principal">
+        <h2 class="subtitulo">Explora tu comunidad</h2>
+
+        <div class="contenedor_formulario">
+          <form id="form-lugar" class="formulario_principal">
+            <input type="text" id="Nombre del marcador" placeholder="Nombre del marcador" class="txt_campo" />
+            <input type="text" id="Tipo de marcador" placeholder="Tipo de marcador" class="txt_campo" />
+            <input type="date" id="fecha" class="txt_campo" />
+            <input type="text" id="Descripcion" placeholder="Descripcion" class="txt_campo" />
+            <button type="button" id="btn_enviar" class="btn_enviar">Agregar Marcador</button>
+          </form>
+        </div>
+
+        <div id="mapa"></div>
+
+        <div class="contenedor_tabla">
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre Marcador</th>
+                <th>Tipo de Marcador</th>
+                <th>Fecha</th>
+                <th>Descripcion</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-lugares"></tbody>
+          </table>
+        </div>
+      </main>
+
+      <footer class="pie_pagina">
+        <p>@PCode</p>
+      </footer>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="../../../js/mapa.js"></script>
+</body>
+</html>

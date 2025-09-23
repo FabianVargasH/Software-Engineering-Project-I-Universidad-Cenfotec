@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear Anuncio Comunitario</title>
+  <link rel="stylesheet" href="../../../css/estilos.css" />
+</head>
+<body>
+  <div class="contenedor_pagina">
+    <div class="contenido_pagina">
+      <header class="encabezado">
+        <h1>Comunidad-Conectada</h1>
+        <div class="contenedor_enlace_inicio">
+         <a href="./seccion_anuncios.html" class="enlace_inicio">← Volver a Anuncios Activos</a>
+        </div>
+      </header>
+      <main class="contenido_principal">
+        <div class="contenedor_principal">
+          <!-- Crear Anuncio -->
+          <div class="contenedor_formulario">
+            <div class="titulo_seccion">+ Crear Anuncio Comunitario</div>
+
+            <form class="formulario_principal">
+              <label class="etiqueta_formulario">Título Anuncio</label>
+              <input type="text" id="txtTitulo" class="txt_campo" placeholder="Ingrese el título(5-100 caracteres)" />
+
+              <label class="etiqueta_formulario">Descripción</label>
+              <textarea id="txtDescripcion" class="txt_campo" rows="4" placeholder="Ingrese la descripción del anuncio"></textarea>
+
+              <label class="etiqueta_formulario">Fecha de caducidad</label>
+              <input type="date" id="txtFechaCaducidad" class="txt_campo" />
+
+              <div style="text-align: center;">
+                <button type="submit" id="btnCrearAnuncio" class="btn_enviar">Enviar</button>
+                <button type="button" id="btnLimpiar" class="btn_secundario" style="margin-left: 10px;">Limpiar</button>
+              </div>
+
+              <div class="nota_revision">
+                Nota: Su anuncio será enviado a revisión antes de ser publicado
+              </div>
+            </form>
+          </div>
+          <!-- Mis Anuncios -->
+          <div class="contenedor_formulario_grande">
+            <div class="titulo_seccion">👤 Mis Anuncios</div>
+
+            <div class="seccion_formulario">
+              <div class="anuncio_item">
+                <strong>[Mi anuncio 1]</strong><br />
+                [Descripción del anuncio]
+              </div>
+              <div class="anuncio_meta">
+                <span>Creado: dd/mm/yyyy</span>
+                <span>Caducidad: dd/mm/yyyy</span>
+              </div>
+              <div class="estado_anuncio">Condición</div>
+            </div>
+
+            <div class="seccion_formulario">
+              <div class="anuncio_item">
+                <strong>[Mi anuncio 2]</strong><br />
+                [Descripción del anuncio]
+              </div>
+              <div class="anuncio_meta">
+                <span>Creado: dd/mm/yyyy</span>
+                <span>Caducidad: dd/mm/yyyy</span>
+              </div>
+              <div class="estado_anuncio">Condición</div>
+            </div>
+
+            <div class="boton_expandir">
+              <button class="btn_secundario">+</button>
+            </div>
+          </div>
+          </div>
+          </main>
+          <footer class="pie_pagina">
+            <p>@PCode</p>
+          </footer>
+          </div>
+        </div>
+    <script src="../../../js/anuncios.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transporte publico</title>
+    <link rel="stylesheet" href="./../../../css/estilos.css">
+</head>
+<body>
+    
+    <div class="contenedor_pagina">
+        <div class="contenido_pagina">
+            <header class="encabezado">
+                <h1>Comunidad-Conectada</h1>
+                <div class="contenedor_enlace_inicio">
+                    <a href="./../dashboard.html" class="enlace_inicio"> ← Volver al inicio</a>
+                </div>
+            </header>
+            <main class="contenido_principal">
+                <div class="contenedor_principal">
+                    <!-- Cabecera con título -->
+                    <div class="titulo_principal">
+                        <h2>Transporte Público Comunitario</h2>
+                        <p class="subtitulo">Información actualizada de rutas y horarios</p>
+                        <div class="estado-actualizacion">
+        
+                        </div>
+                    </div>
+                    
+                    <!-- Contenedor principal de dos columnas -->
+                    <div class="contenedor_transporte_horarios">
+                        <!-- Columna izquierda - Información de ruta -->
+                        <div class="seccion_formulario_transporte">
+                            <div class="info-ruta">
+                                <h2 class="titulo_ruta">Cargando ruta...</h2>
+
+                                <div class="detalle-ruta">
+                                    <div class="info-recorrido">
+                                        <h3>Recorrido:</h3>
+                                        <p class="recorrido-texto">Cargando información...</p>
+                                    </div>
+                                    <div class="info-tarifa">
+                                        <h3>Tarifa base:</h3>
+                                        <p class="tarifa-precio">Cargando...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Columna derecha - Horarios -->
+                        <div class="schedule">
+                            <h3 class="titulo_horarios">Horarios de Operación</h3>
+                            <div class="tabla-horarios">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Día</th>
+                                            <th>Primer Bus</th>
+                                            <th>Último Bus</th>
+                                            <th>Frecuencia</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td colspan="4" class="cargando">Cargando horarios...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Sección de contacto -->
+                    <div class="contenedor_contactos_oficiales">
+                        <div class="contactos-contenido">
+                            <h3 class="titulo_contacto">Contacto Oficial</h3>
+                            
+                            <div class="info-contacto-actual">
+                                <div class="contacto-datos">
+                                    <div class="dato-contacto">
+                                        <label>Teléfono:</label>
+                                        <span id="telefono-contacto">Cargando...</span>
+                                    </div>
+                                    <div class="dato-contacto">
+                                        <label>Email:</label>
+                                        <span id="email-contacto">Cargando...</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <footer class="pie_pagina">
+            <p>@PCode</p>
+        </footer>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../../../js/transporte.js"></script>
+ 
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad-Conectada Landing</title>
+    <link rel="stylesheet" href="./css/estilos.css">
+</head>
+<body>
+    <div class="contenedor_pagina">
+        <div class="contenido_pagina">
+            <header class="encabezado" id="landing_encabezado">
+                <h1 id="landing_titulo">Comunidad-Conectada</h1>
+                <nav class="btn_primario landing_navegacion_header" id="landing_nav_iniciar_sesion">
+                    <a href="./paginas/registro/login.html">Iniciar sesión</a>
+                </nav>
+                <nav class="btn_primario landing_navegacion_header" id="landing_nav_registrarse">
+                    <a href="./paginas/registro/registro.html">Registrarse</a>
+                </nav>
+                <div id="grupo_trabajo">
+                    <img src="./img/Logo_proyecto.png" alt="Logo PCode">
+                    <div id="nombre_grupo">
+                        <h2>PCode</h2>
+                    </div>
+                </div>
+            </header>
+            
+            <section class="imagen_grande">
+                <div class="carousel-container">
+                    <div class="carousel-slides" id="carouselSlides">
+                        <div class="carousel-slide">
+                            <img src="./img/Administrar.webp" alt="Administrador">
+                            <a class="slide-text" href="./paginas/dashboard/dashboard.html">Conecta con tu comunidad</a>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./img/calendarioComunitarioLanding.jpg" alt="Calendario">
+                            <a class="slide-text" href="./paginas/dashboard/dashboard.html">Comparte tu emprendimiento</a>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./img/Emprendimiento.webp" alt="Emprendimiento">
+                            <a class="slide-text" href="./paginas/dashboard/dashboard.html">Descubre nuevas oportunidades</a>
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="./img/transportePublico.webp" alt="Transporte Público">
+                            <a class="slide-text" href="./paginas/dashboard/dashboard.html">Comparte información</a>
+                        </div>
+                    </div>
+
+                    <button class="btn_secundario" id="anteriorBtn">❮</button>
+                    <button class="btn_secundario" id="siguienteBtn">❯</button>
+                </div>
+            </section>
+
+            <main class="contenedor_principal" id="inicio_contenido">
+                <h2 class="titulo_principal" id="titulo_inicio">Bienvenido a tu comunidad conectada</h2>
+
+                <div class="seccion_contenido">
+                    <div class="contenedor-imagen">
+                        <img class="contenido-imagen" src="./img/transportePublico.webp" alt="Imagen de comunidad">
+                    </div>
+
+                    <div class="contenido-text" id="texto_introductorio">
+                        <p class="texto_Descriptivo">
+                            Comunidad-Conectada es un proyecto creado por y para los ciudadanos de las comunidades de Costa Rica.
+                            Busca resolver los problemas de información y conectividad entre los ciudadanos de una misma comunidad.
+                        </p>
+                        <p class="texto_Descriptivo">
+                            Con Comunidad-Conectada podrás conocer los nuevos emprendimientos que elaboran tus vecinos, crear reportes,
+                            ver un calendario comunitario de eventos, revisar la información sobre rutas, horarios y contactos oficiales
+                            del transporte público de tu zona, entre muchas otras funcionalidades que te permitirán conectar e incorporarte
+                            en tu comunidad, aportando y desarrollando una sociedad más unida.
+                        </p>
+                        <p class="texto_Descriptivo">
+                            Este proyecto es creado por el grupo de trabajo PCode, el cual es un grupo de estudiantes amantes del desarrollo
+                            de software de calidad, los cuales presentaron los mismos problemas que tú al conectar con tu comunidad y decidieron crear una solución 
+                        </p>
+                    </div>
+                </div>
+            </main>
+            <footer class="pie_pagina">
+                <p>©PCode</p>
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>

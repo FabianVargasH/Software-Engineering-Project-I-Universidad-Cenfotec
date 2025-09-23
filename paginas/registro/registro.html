@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+   <!--Link css -->
+    <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+<body>
+   <div class="contenedor_pagina">
+        <div class="contenido_pagina">
+            <header class="encabezado">
+                <h1>Comunidad-Conectada</h1>
+                <nav class="contenedor_enlace_inicio">
+                    <a class="enlace_inicio" href="../../index.html"> ← Volver al inicio</a> 
+                </nav>
+            </header>
+            <main class="contenido_principal">
+                <div class="titulo_principal">
+                    <h2>Registro de Usuario</h2>
+                </div>
+                <div class="subtitulo">
+                    <p>¡Únete a nuestra comunidad digital!</p>
+                    <p>Completa el formulario para acceder a todas las funcionalidades de la plataforma</p>
+                </div>
+                
+                <section class="contenedor_formulario_grande">
+                    <form class="formulario_principal">
+                        <div class="seccion_formulario">
+                            <h3 class="titulo_seccion">1. Tipo de Usuario</h3>
+                            <div class="contenedor_tarjetas">
+                                <div class="opcion_individual">
+                                    <input type="radio" id="opcion_ciudadano" name="tipo_usuario_seleccionado" value="ciudadano">
+                                    <label for="opcion_ciudadano" class="tarjeta">
+                                        <h3>Ciudadano</h3>
+                                        <p>Como ciudadano podrás visualizar y utilizar las herramientas básicas</p>
+                                    </label>
+                                </div>
+                                <!-- Opción Emprendedor -->
+                                <div class="opcion_individual">
+                                    <input type="radio" id="opcion_emprendedor" name="tipo_usuario_seleccionado" value="emprendedor">
+                                    <label for="opcion_emprendedor" class="tarjeta">
+                                        <h3>Emprendedor</h3>
+                                        <p>Como emprendedor tendrás la oportunidad de crear tu emprendimiento y gestionarlo</p>
+                                    </label>
+                                </div>
+                                <!-- Opción Administrador (enlace directo) -->
+                                <div class="opcion_individual">
+                                    <a href="login.html" class="enlace_administrador">
+                                        <div class="tarjeta">
+                                            <h3>Administrador</h3>
+                                            <p>Como administrador tendrás la posibilidad de gestionar tu comunidad</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>      
+                        </div>
+                        
+                        <div class="informacion_personal">
+                            <h3 class="titulo_seccion">2. Información Personal</h3>
+                            <div id="campo_nombre">
+                                <label for="txtNombreCompleto" class="etiqueta_formulario">Nombre Completo *</label>
+                                <input type="text" class="txt_campo" id="txtNombreCompleto" placeholder="Ingrese su nombre completo">
+                            </div>
+                            
+                            <div id="campos_telefono_fecha">
+                                <div id="campo_telefono">
+                                    <label for="txtTelefono" class="etiqueta_formulario">Teléfono *</label>
+                                    <input type="text" class="txt_campo" id="txtTelefono" placeholder="12345....">
+                                </div>
+                                <div id="campo_fecha">
+                                    <label for="txtFechaNacimiento" class="etiqueta_formulario">Fecha Nacimiento *</label>
+                                    <input type="date" class="txt_campo" id="txtFechaNacimiento" placeholder="dd/mm/yyyy">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="informacion_cuenta">
+                            <h3 class="titulo_seccion">3. Información de cuenta</h3>
+                            <label for="txtCorreoElectronico" class="etiqueta_formulario">Correo Electrónico *</label>
+                            <input type="email" class="txt_campo" id="txtCorreoElectronico" placeholder="correo@dominio.com">
+                            <label for="txtContrasenna" class="etiqueta_formulario">Contraseña *</label>
+                            <input type="password" class="txt_campo" id="txtContrasenna" placeholder="*********">
+                        </div>
+                        
+                        <div id="contenedor_botones">
+                            <button type="button" class="btn_secundario" id="btnLimpiar">Limpiar formulario</button>
+                            <button type="button" class="btn_primario" id="btnRegistrarse">Crear cuenta</button>
+                        </div>
+                    </form>
+                    <div class="enlace_navegacion">
+                        <p>¿Ya tienes una cuenta? <a href="login.html">Inicie sesión aquí</a></p>
+                    </div>
+                </section>
+            </main>
+            <footer class="pie_pagina">
+                <p>@PCode</p>
+            </footer>
+        </div>
+   </div>
+<!--Axios-->
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<!--Link sweet alert-->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!--Link al controlador.js-->
+<script src="../../js/registro.js"></script>
+<script src="../../backend/controladores/controladorRegistro.js"></script>
+</body>
+
+</html>

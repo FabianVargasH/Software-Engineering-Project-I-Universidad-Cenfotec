@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad-Conectada Login</title>
+    <link rel="stylesheet" href="../../css/estilos.css">
+</head>
+<body>
+    <body>
+   <div class="contenedor_pagina">
+        <div class="contenido_pagina">
+            <header class="encabezado">
+                <h1>Comunidad-Conectada</h1>
+                <div class="contenedor_enlace_inicio">
+                    <a class="enlace_inicio" href="../../index.html"> ← Volver al inicio</a> 
+                </div>
+            </header>
+            <main class="contenido_principal">
+                <div class="titulo_principal">
+                    <h2>Inicio de sesión</h2>
+                </div>
+                <section class="contenedor_formulario">
+                    <form class="formulario_principal" id="formLogin">
+                        <label class="etiqueta_formulario" for="txtEmail">Correo Electrónico</label>
+                        <input class="txt_campo" type="email" id="txtEmail" placeholder="correo@Dominio.com">
+                        <label class="etiqueta_formulario" for="txtContrasenna">Contraseña</label> 
+                        <input class="txt_campo" type="password" id="txtContrasenna" placeholder="************">
+                        <button class="btn_primario btn_ancho_completo" id="btnIniciarSesion" type="button">Iniciar Sesión</button>
+                        <nav class="enlace_navegacion">
+                            <p>No tiene cuenta? <a href="registro.html">Regístrese</a></p>
+                        </nav>
+                    </form>
+                </section>
+            </main>
+            <footer class="pie_pagina">
+                <p>@PCode</p>
+            </footer>
+        </div>
+   </div>
+    <!--Axios-->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--Link sweet alert-->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.12/dist/sweetalert2.all.min.js"></script>
+    <!-- Link validaciones -->
+    <script src="../../js/login.js"></script>
+    <script src="../../backend/controladores/controladorLogin.js"></script>
+</body>
+    
+</body>
+</html>
