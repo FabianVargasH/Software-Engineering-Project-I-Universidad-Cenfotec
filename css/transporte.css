@@ -1,0 +1,74 @@
+.contenedor_transporte_horarios{
+    gap: 300px;
+    display: flex;
+    max-width: 900px;
+    margin: 0 auto;
+    margin-top: 50px;
+    background: white;
+    padding: 50px;
+    border-radius: 8px;
+    border: 2px solid #000000;
+}
+.seccion_formulario_transporte {
+    margin-top: 26px;
+}
+.schedule table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+.schedule th,
+.schedule td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+  border: 2px solid #000000;
+}
+.contenedor_contactos_oficiales {
+    display: flex;
+    max-width: 900px;
+    margin: 50px auto 0;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    border: 2px solid #000000;
+}
+.contactos-contenido {
+    flex: 1;
+    padding-right: 30px; 
+    min-width: 0; 
+}
+.titulo_principal {
+    margin-bottom: 20px;
+    color: #1E3A8A;
+}
+.contacto-item {
+    margin-bottom: 20px;
+}
+.contacto-item h2 {
+    font-size: 1.3rem;
+    color: #1E3A8A;
+    margin-bottom: 10px;
+}
+.info-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.txt_campo_jc {
+    background: #F3F4F6;
+    border: 0px solid #E5E7EB;
+    padding-bottom: 200px;
+    padding-left: 50px;
+    padding-right: 625px;
+    padding-top: 10px;
+}
+
+.txt_campo_jc_2 {
+    background: #F3F4F6;
+    border: 0px solid #E5E7EB;
+    padding-bottom: 100px;
+    padding-left: 25px;
+    padding-right: 325px;
+    padding-top: 8px;
+}

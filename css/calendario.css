@@ -1,0 +1,95 @@
+.contenedor_calendario {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 30px;
+  background-color: #F3F4F6;
+}
+
+.calendario_visual {
+  flex: 1 1 60%;
+  min-height: 400px;
+  background-color: #D1D5DB;
+  border: 2px solid #c4c4c6;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}
+
+.formulario_evento {
+  flex: 1 1 35%;
+  background-color: #ffffff;
+  border: 2px solid #c4c4c6;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.formulario_evento h2 {
+  font-size: 22px;
+  color: #1E3A8A;
+  margin-bottom: 20px;
+}
+
+.formulario_evento label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #111827;
+  font-family: 'Poppins', sans-serif;
+}
+
+.formulario_evento input,
+.formulario_evento textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #E5E7EB;
+  border-radius: 6px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+}
+.formulario_evento textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.formulario_evento .btn_enviar {
+  background-color: #60A5FA;
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+.formulario_evento .btn_enviar:hover {
+  background-color: #5294e5;
+}
+.nota_evento {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #374151;
+  font-style: italic;
+}
+.tab-container {
+  width: 100%;
+  display: flex;
+  justify-content: center; 
+  background-color: #e0e0e0; 
+  border-bottom: 1px solid #999;
+}
+.tab {
+  flex: 1; 
+  padding: 16px;
+  background-color: #f5f5f5;
+  border: 1px solid #999;
+  border-bottom: none; 
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.tab:hover {
+  background-color: #ddd;
+}

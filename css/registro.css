@@ -1,0 +1,23 @@
+.opcion_individual {
+    position: relative;
+}
+
+.opcion_individual input {
+    display: none;
+}
+
+#contenedor_botones {
+    margin-left: 250px;
+}
+
+.titulo_principal h2 {
+    font-size: 45px;
+    margin-bottom: 10px;
+    color: #1E3A8A;
+}
+
+.subtitulo p {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+    color: #4B5563;
+}
