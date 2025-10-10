@@ -120,16 +120,16 @@ const reglasValidacionProducto = {
 // Función para guardar datos en localStorage - CORREGIDA
 const guardarDatos = () => {
     try {
-        console.log('💾 Guardando datos en localStorage...');
-        console.log('📊 Emprendimientos a guardar:', emprendimientos);
-        console.log('🛍️ Productos a guardar:', productos);
+        console.log('Guardando datos en localStorage...');
+        console.log('Emprendimientos a guardar:', emprendimientos);
+        console.log('Productos a guardar:', productos);
         
         localStorage.setItem('emprendimientos', JSON.stringify(emprendimientos));
         localStorage.setItem('productos', JSON.stringify(productos));
         localStorage.setItem('emprendimientoIdCounter', emprendimientoIdCounter.toString());
         localStorage.setItem('productoIdCounter', productoIdCounter.toString());
         
-        console.log('✅ Datos guardados exitosamente en localStorage');
+        console.log('Datos guardados exitosamente en localStorage');
         
         // Disparar evento personalizado para notificar cambios
         window.dispatchEvent(new CustomEvent('datosActualizados', {
@@ -144,7 +144,7 @@ const guardarDatos = () => {
 // Función para cargar datos desde localStorage - CORREGIDA
 const cargarDatosGuardados = () => {
     try {
-        console.log('📥 Cargando datos desde localStorage...');
+        console.log('Cargando datos desde localStorage...');
         
         const emprendimientosGuardados = JSON.parse(localStorage.getItem('emprendimientos') || '[]');
         const productosGuardados = JSON.parse(localStorage.getItem('productos') || '[]');
@@ -156,8 +156,8 @@ const cargarDatosGuardados = () => {
         emprendimientoIdCounter = ultimoIdEmprendimiento;
         productoIdCounter = ultimoIdProducto;
         
-        console.log('📊 Emprendimientos cargados:', emprendimientos);
-        console.log('🛍️ Productos cargados:', productos);
+        console.log('Emprendimientos cargados:', emprendimientos);
+        console.log('Productos cargados:', productos);
         
         actualizarSelectsEmprendimiento();
         actualizarListaPublica();

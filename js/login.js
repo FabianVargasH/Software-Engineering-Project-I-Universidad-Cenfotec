@@ -33,6 +33,15 @@ function limpiarError(campo) {
     campo.classList.remove('campo-invalido');
 }
 
+//Funcion para limpiar todos los campos del formulario
+function limpiarCamposFormulario() {
+    campoEmail.value = '';
+    campoContrasena.value = '';
+    limpiarError(campoEmail);
+    limpiarError(campoContrasena);
+    campoEmail.focus();
+}
+
 //Funcion para validar el Email
 function validarEmail() {
     const email = campoEmail.value.trim();
@@ -112,6 +121,9 @@ async function manejarEnvio(evento) {
             text: error.mensaje,
             icon: "error",
             confirmButtonColor: '#dc3545'
+        }).then(() => {
+            // Limpiar los campos después de cerrar el alert
+            limpiarCamposFormulario();
         });
         return;
     }
@@ -133,9 +145,12 @@ async function manejarEnvio(evento) {
 
         Swal.fire({
             title: "Error inesperado",
-            text: "Ocurrió un error inesperado. Por favor, intente nuevamente.",
+            text: "Datos incorrectos. Por favor, intente nuevamente.",
             icon: "error",
             confirmButtonColor: '#dc3545'
+        }).then(() => {
+            // Limpiar los campos después de cerrar el alert
+            limpiarCamposFormulario();
         });
     } finally {
         // Re-habilitar el botón

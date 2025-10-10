@@ -226,7 +226,7 @@ const ejecutarValidacionCompleta = () => {
 
 //Funcion para limpiar el formulario
 const limpiarCampos = () => {
-    //limpiar los inputs
+    //Limpiar campos del formulario
     Object.values(camposFormulario).forEach(elementoCampo => {
         if (elementoCampo) {
             elementoCampo.value = '';
@@ -252,7 +252,9 @@ const limpiarCampos = () => {
         tarjeta.style.backgroundColor = '';
         tarjeta.style.borderColor = '';
     });
-};
+}
+
+btnLimpiar.addEventListener("click", limpiarCampos);
 
 // Función básica para marcar la opción seleccionada
 document.querySelectorAll('input[name="tipo_usuario_seleccionado"]').forEach(radio => {
