@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mapa de la comunidad | Comunidad-Conectada</title>
+  <title>Mapa Interactivo Comunitario | Comunidad-Conectada</title>
   <link rel="stylesheet" href="../../../css/estilos.css" />
   <link rel="stylesheet" href="../../../css/mapa.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
 <body>
   <div class="contenedor_pagina">
@@ -18,16 +19,103 @@
           </nav>
       </header>
       <main class="contenido_principal">
-        <h2 class="subtitulo">Explora tu comunidad</h2>
+        <h2 class="subtitulo">Mapa Interactivo de tu Comunidad</h2>
+        <h3 class="descripcion_mapa">Descubre y comparte los lugares más importantes de tu comunidad. Marca puntos de interés, eventos locales, servicios y lugares especiales que hacen única a tu vecindad. ¡Juntos construimos un mapa más completo y útil para todos!</h3>
+
+        <div class="caracteristicas-mapa">
+          <div class="caracteristica">
+            <div class="caracteristica-imagen">
+              <img src="../../../img/located-icon.png" alt="Agregar ubicaciones">
+            </div>
+            <h3>Marca Puntos de Interés</h3>
+            <p>Agrega fácilmente ubicaciones importantes en tu comunidad. Comercios locales, servicios públicos, eventos y más.</p>
+          </div>
+
+          <div class="caracteristica">
+            <div class="caracteristica-imagen">
+              <img src="../../../img/busqueda-icon.png" alt="Buscar lugares">
+            </div>
+            <h3>Búsqueda Inteligente</h3>
+            <p>Encuentra rápidamente cualquier lugar en Costa Rica. El mapa te llevará automáticamente a la ubicación deseada.</p>
+          </div>
+
+          <div class="caracteristica">
+            <div class="caracteristica-imagen">
+              <img src="../../../img/comunity-icon.png" alt="Información comunitaria">
+            </div>
+            <h3>Información Comunitaria</h3>
+            <p>Descubre y comparte información valiosa sobre lugares importantes en tu vecindario. Ayuda a otros a conocer mejor la comunidad.</p>
+          </div>
+        </div>
 
         <div class="contenedor_formulario">
+          <h3 class="form-titulo">Agregar Nuevo Punto de Interés</h3>
           <form id="form-lugar" class="formulario_principal">
-            <input type="text" id="Nombre del marcador" placeholder="Nombre del marcador" class="txt_campo" />
-            <input type="text" id="Tipo de marcador" placeholder="Tipo de marcador" class="txt_campo" />
-            <input type="date" id="fecha" class="txt_campo" />
-            <input type="text" id="Descripcion" placeholder="Descripcion" class="txt_campo" />
-            <button type="button" id="btn_enviar" class="btn_enviar">Agregar Marcador</button>
+            <div class="campo-grupo">
+              <label for="nombre-marcador">Nombre del lugar:</label>
+              <input type="text" id="Nombre del marcador" placeholder="Ej: Parque Central" class="txt_campo" required />
+            </div>
+            <div class="campo-grupo">
+              <label for="tipo-marcador">Categoría:</label>
+              <div class="select-personalizado">
+                <div class="select-seleccionado" tabindex="0">
+                  <span>Selecciona una categoría</span>
+                  <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="select-opciones">
+                  <div class="select-opcion" data-value="comercio">
+                    <span class="dot comercio"></span>
+                    <div class="opcion-contenido">
+                      <strong>Comercios</strong>
+                      <small>Para negocios y establecimientos</small>
+                    </div>
+                  </div>
+                  <div class="select-opcion" data-value="servicios">
+                    <span class="dot servicios"></span>
+                    <div class="opcion-contenido">
+                      <strong>Servicios</strong>
+                      <small>Instalaciones y servicios públicos</small>
+                    </div>
+                  </div>
+                  <div class="select-opcion" data-value="eventos">
+                    <span class="dot eventos"></span>
+                    <div class="opcion-contenido">
+                      <strong>Eventos</strong>
+                      <small>Actividades y acontecimientos</small>
+                    </div>
+                  </div>
+                  <div class="select-opcion" data-value="comunidad">
+                    <span class="dot comunidad"></span>
+                    <div class="opcion-contenido">
+                      <strong>Puntos Comunitarios</strong>
+                      <small>Lugares de interés común</small>
+                    </div>
+                  </div>
+                </div>
+                <input type="hidden" id="Tipo de marcador" name="tipo-marcador" required>
+              </div>
+            </div>
+            <div class="campo-grupo">
+              <label for="fecha">Fecha relevante:</label>
+              <input type="date" id="fecha" class="txt_campo" />
+            </div>
+            <div class="campo-grupo">
+              <label for="Descripcion">Descripción:</label>
+              <textarea id="Descripcion" placeholder="Describe este lugar y por qué es importante para la comunidad" class="txt_campo txt_area" required></textarea>
+            </div>
+            <button type="button" id="btn_enviar" class="btn_enviar">
+              <i class="fas fa-map-marker-alt"></i> Agregar al Mapa
+            </button>
           </form>
+        </div>
+
+        <div class="buscador-mapa">
+          <div class="campo-busqueda">
+            <input type="text" id="buscar-lugar" placeholder="Buscar un lugar en el mapa..." class="txt_campo busqueda">
+            <button id="btn-buscar" class="btn-buscar">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
         </div>
 
         <div id="mapa"></div>
