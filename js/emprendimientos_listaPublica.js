@@ -114,37 +114,118 @@ const actualizarListaPublica = () => {
 
 // Función para crear textarea con información del emprendimiento y producto
 const crearTextareaEmprendimiento = (emprendimiento, producto) => {
-    const textarea = document.createElement('textarea');
-    textarea.className = 'txt_campo_jc';
-    textarea.setAttribute('readonly', true);
-    textarea.setAttribute('rows', '5');
-    textarea.setAttribute('data-generated', 'true'); // Marcar como generado
+    console.log('Creando card para:', { emprendimiento, producto });
     
-    const contenido = `[${emprendimiento.nombre}]
-${emprendimiento.descripcion || 'Sin descripción disponible'}
-[${producto.nombre}]
-${producto.descripcion}
-₡${producto.precio.toLocaleString('es-CR')}`;
+    const card = document.createElement('div');
+    card.className = 'emprendimiento-card';
     
-    textarea.value = contenido;
-    return textarea;
+    // Crear header del emprendimiento
+    const header = document.createElement('div');
+    header.className = 'emprendimiento-header';
+    header.innerHTML = `
+        <div class="emprendimiento-nombre">${emprendimiento.nombre}</div>
+        <div class="emprendimiento-categoria">${emprendimiento.categoria || 'Sin categoría'}</div>
+    `;
+    
+    // Crear sección de información del emprendimiento
+    const infoSection = document.createElement('div');
+    infoSection.className = 'emprendimiento-info';
+    infoSection.innerHTML = `
+        <div class="info-item">
+            <div class="info-label">Descripción</div>
+            <div class="info-value">${emprendimiento.descripcion || 'Sin descripción disponible'}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">Ubicación</div>
+            <div class="info-value">${emprendimiento.ubicacion || 'No especificada'}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">Horario</div>
+            <div class="info-value">${emprendimiento.horario || 'No especificado'}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">Contacto</div>
+            <div class="info-value">${emprendimiento.contacto || 'No disponible'}</div>
+        </div>
+    `;
+    
+    // Crear sección de producto
+    const productoSection = document.createElement('div');
+    productoSection.className = 'producto-section';
+    productoSection.innerHTML = `
+        <div class="producto-title">Producto Destacado</div>
+        <div class="producto-details">
+            <div class="producto-item">
+                <div class="producto-label">Nombre</div>
+                <div class="info-value">${producto.nombre}</div>
+            </div>
+            <div class="producto-item">
+                <div class="producto-label">Precio</div>
+                <div class="info-value">₡${producto.precio.toLocaleString('es-CR')}</div>
+            </div>
+            <div class="producto-item" style="grid-column: span 2;">
+                <div class="producto-label">Descripción</div>
+                <div class="info-value">${producto.descripcion || 'Sin descripción'}</div>
+            </div>
+        </div>
+    `;
+    
+    // Ensamblar la tarjeta
+    card.appendChild(header);
+    card.appendChild(infoSection);
+    card.appendChild(productoSection);
+    
+    return card;
 };
 
 // Función para crear textarea de emprendimiento sin productos
 const crearTextareaEmprendimientoSinProductos = (emprendimiento) => {
-    const textarea = document.createElement('textarea');
-    textarea.className = 'txt_campo_jc';
-    textarea.setAttribute('readonly', true);
-    textarea.setAttribute('rows', '4');
-    textarea.setAttribute('data-generated', 'true'); // Marcar como generado
+    const card = document.createElement('div');
+    card.className = 'emprendimiento-card';
     
-    const contenido = `[${emprendimiento.nombre}]
-${emprendimiento.descripcion || 'Sin descripción disponible'}
-[Sin productos disponibles]
-Este emprendimiento aún no tiene productos registrados.`;
+    // Crear header del emprendimiento
+    const header = document.createElement('div');
+    header.className = 'emprendimiento-header';
+    header.innerHTML = `
+        <div class="emprendimiento-nombre">${emprendimiento.nombre}</div>
+        <div class="emprendimiento-categoria">${emprendimiento.categoria || 'Sin categoría'}</div>
+    `;
     
-    textarea.value = contenido;
-    return textarea;
+    // Crear sección de información del emprendimiento
+    const infoSection = document.createElement('div');
+    infoSection.className = 'emprendimiento-info';
+    infoSection.innerHTML = `
+        <div class="info-item">
+            <div class="info-label">Descripción</div>
+            <div class="info-value">${emprendimiento.descripcion || 'Sin descripción disponible'}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">Ubicación</div>
+            <div class="info-value">${emprendimiento.ubicacion || 'No especificada'}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">Horario</div>
+            <div class="info-value">${emprendimiento.horario || 'No especificado'}</div>
+        </div>
+        <div class="info-item">
+            <div class="info-label">Contacto</div>
+            <div class="info-value">${emprendimiento.contacto || 'No disponible'}</div>
+        </div>
+    `;
+    
+    // Mensaje de no productos
+    const noProductosSection = document.createElement('div');
+    noProductosSection.className = 'producto-section';
+    noProductosSection.innerHTML = `
+        <div class="producto-title" style="color: #6B7280;">No hay productos registrados</div>
+    `;
+    
+    // Ensamblar la tarjeta
+    card.appendChild(header);
+    card.appendChild(infoSection);
+    card.appendChild(noProductosSection);
+    
+    return card;
 };
 
 // Función para mostrar mensaje cuando no hay datos
@@ -154,37 +235,35 @@ const mostrarMensajeSinDatos = () => {
     
     if (contenedorListaPublica) {
         // Buscar si ya existe un mensaje de "sin datos" para evitar duplicados
-        const mensajeExistente = contenedorListaPublica.querySelector('textarea[data-sin-datos="true"]');
+        const mensajeExistente = contenedorListaPublica.querySelector('div[data-sin-datos="true"]');
         if (mensajeExistente) {
             return; // Ya existe el mensaje
         }
         
-        // Limpiar cualquier textarea existente antes de mostrar el mensaje
-        const textareasExistentes = contenedorListaPublica.querySelectorAll('textarea');
-        textareasExistentes.forEach(textarea => textarea.remove());
+        // Crear tarjeta de mensaje
+        const mensajeCard = document.createElement('div');
+        mensajeCard.className = 'emprendimiento-card';
+        mensajeCard.setAttribute('data-sin-datos', 'true');
+        mensajeCard.style.textAlign = 'center';
+        mensajeCard.style.padding = '40px 20px';
         
-        const textarea = document.createElement('textarea');
-        textarea.className = 'txt_campo_jc';
-        textarea.setAttribute('readonly', true);
-        textarea.setAttribute('rows', '4');
-        textarea.setAttribute('data-sin-datos', 'true');
-        textarea.setAttribute('data-generated', 'true');
-        textarea.style.textAlign = 'center';
-        textarea.style.fontStyle = 'italic';
-        textarea.style.backgroundColor = '#f8f9fa';
-        textarea.style.color = '#6c757d';
-        textarea.style.border = '2px dashed #dee2e6';
-        textarea.value = `Aún no hay emprendimientos registrados
-
-¡Sé el primero en crear uno!
-
-Ve a "Creación de Emprendimientos" para comenzar`;
+        mensajeCard.innerHTML = `
+            <div class="emprendimiento-nombre" style="color: #6B7280; margin-bottom: 20px;">
+                No hay emprendimientos registrados
+            </div>
+            <p style="color: #4B5563; margin-bottom: 20px;">
+                ¡Sé el primero en crear uno!
+            </p>
+            <p style="color: #6B7280; font-size: 0.9rem;">
+                Ve a "Creación de Emprendimientos" para comenzar
+            </p>
+        `;
         
         // Insertar antes del párrafo si existe
         if (parrafo) {
-            contenedorListaPublica.insertBefore(textarea, parrafo);
+            contenedorListaPublica.insertBefore(mensajeCard, parrafo);
         } else {
-            contenedorListaPublica.appendChild(textarea);
+            contenedorListaPublica.appendChild(mensajeCard);
         }
     }
 };
