@@ -245,18 +245,15 @@ const guardarProducto = (emprendimientoId, nombreProducto, descripcionProducto, 
 // Función para actualizar la sección "Mis productos"
 const actualizarMisProductos = () => {
     const selectMisProductos = document.querySelector('.contenedor_formulario:last-child select');
-    const textareaMisProductos = document.querySelector('.contenedor_formulario:last-child textarea[readonly]');
-    
-    if (selectMisProductos && textareaMisProductos) {
-        // Agregar event listener para el cambio de emprendimiento
+    if (selectMisProductos) {
+        // Cuando cambie la selección, renderizar las tarjetas dinámicamente
         selectMisProductos.addEventListener('change', function() {
-            const emprendimientoId = parseInt(this.value);
-            if (emprendimientoId) {
-                mostrarProductosDeEmprendimiento(emprendimientoId, textareaMisProductos);
-            } else {
-                textareaMisProductos.value = '';
-            }
+            // Renderizar tarjetas filtradas por emprendimiento
+            renderizarTarjetasMisProductos();
         });
+
+        // Render inicial (por si ya hay una selección)
+        renderizarTarjetasMisProductos();
     }
 };
 
@@ -661,6 +658,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Configurar la sección "Mis productos"
     actualizarMisProductos();
+
+    // Render inicial de tarjetas en la sección "Mis productos"
+    renderizarTarjetasMisProductos();
     
     // Botón eliminar
     const btnEliminar = document.querySelector('.btn_secundario');
@@ -751,6 +751,181 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Renderizar tarjetas dinámicamente en el contenedor #misProductosGrid
+function renderizarTarjetasMisProductos() {
+    const grid = document.getElementById('misProductosGrid');
+    if (!grid) return;
+
+    // Limpiar grid
+    grid.innerHTML = '';
+
+    // Obtener emprendimiento seleccionado en la sección "Mis productos"
+    const selectMis = document.querySelector('.contenedor_formulario:last-child select');
+    const emprendimientoId = selectMis ? parseInt(selectMis.value) : null;
+
+    // Filtrar productos a mostrar
+    let productosAMostrar = productos;
+    if (emprendimientoId) {
+        productosAMostrar = productos.filter(p => p.emprendimientoId === emprendimientoId);
+    }
+
+    if (productosAMostrar.length === 0) {
+        const aviso = document.createElement('p');
+        aviso.textContent = 'No se encontraron productos para este emprendimiento.';
+        aviso.style.color = '#6B7280';
+        grid.appendChild(aviso);
+        return;
+    }
+
+    productosAMostrar.forEach(producto => {
+        const tarjeta = document.createElement('div');
+        tarjeta.className = 'tarjeta';
+        tarjeta.style.width = '48%';
+        tarjeta.style.minWidth = '260px';
+        tarjeta.style.boxSizing = 'border-box';
+        tarjeta.style.padding = '18px';
+        tarjeta.style.textAlign = 'left';
+
+        tarjeta.innerHTML = `
+            <h3>${escapeHtml(producto.nombre)}</h3>
+            <p style="color:#6B7280; margin:8px 0;">${escapeHtml(producto.descripcion)}</p>
+            <p style="font-weight:700; color:#111827; margin:6px 0;">Precio: <span style="color:#1E3A8A;">₡${producto.precio.toLocaleString()}</span></p>
+            <p style="margin:6px 0; color:#374151;">Condición: ${escapeHtml(producto.estado || 'Pendiente')}</p>
+            <div style="margin-top:12px; display:flex; gap:12px; justify-content:center;">
+                <button class="btn_primario" style="width:45%;" data-id="${producto.id}">Editar</button>
+                <button class="btn_secundario" style="width:45%;" data-id="${producto.id}">Eliminar</button>
+            </div>
+        `;
+
+        // Delegar eventos en los botones
+        const btnEditar = tarjeta.querySelector('.btn_primario');
+        const btnEliminar = tarjeta.querySelector('.btn_secundario');
+
+        btnEditar.addEventListener('click', () => handleEditarProducto(producto.id));
+        btnEliminar.addEventListener('click', () => handleEliminarProducto(producto.id));
+
+        grid.appendChild(tarjeta);
+    });
+}
+
+// Manejar edición de producto
+function handleEditarProducto(productoId) {
+    const producto = productos.find(p => p.id === productoId);
+    if (!producto) return;
+
+    // Usar SweetAlert2 si está disponible para un formulario bonito
+    if (typeof Swal !== 'undefined') {
+        Swal.fire({
+            title: 'Editar producto',
+            html:
+                `<input id="swal-nombre" class="swal2-input" placeholder="Nombre" value="${escapeHtml(producto.nombre)}">` +
+                `<textarea id="swal-desc" class="swal2-textarea" placeholder="Descripción">${escapeHtml(producto.descripcion)}</textarea>` +
+                `<input id="swal-precio" class="swal2-input" placeholder="Precio" value="${producto.precio}">`,
+            focusConfirm: false,
+            showCancelButton: true,
+            preConfirm: () => {
+                const nombre = document.getElementById('swal-nombre').value.trim();
+                const desc = document.getElementById('swal-desc').value.trim();
+                const precio = parseFloat(document.getElementById('swal-precio').value);
+
+                if (!nombre || nombre.length < 3) {
+                    Swal.showValidationMessage('Nombre debe tener al menos 3 caracteres');
+                    return false;
+                }
+                if (!desc || desc.length < 10) {
+                    Swal.showValidationMessage('Descripción debe tener al menos 10 caracteres');
+                    return false;
+                }
+                if (isNaN(precio) || precio <= 0) {
+                    Swal.showValidationMessage('Precio debe ser un número mayor a 0');
+                    return false;
+                }
+
+                return { nombre, desc, precio };
+            }
+        }).then(result => {
+            if (result.isConfirmed && result.value) {
+                producto.nombre = result.value.nombre;
+                producto.descripcion = result.value.desc;
+                producto.precio = result.value.precio;
+
+                guardarDatos();
+                renderizarTarjetasMisProductos();
+                actualizarListaPublica();
+
+                Swal.fire('Guardado', 'El producto ha sido actualizado.', 'success');
+            }
+        });
+    } else {
+        // Fallback: usar prompts
+        const nuevoNombre = prompt('Nombre', producto.nombre);
+        if (nuevoNombre === null) return;
+        const nuevaDesc = prompt('Descripción', producto.descripcion);
+        if (nuevaDesc === null) return;
+        const nuevoPrecio = prompt('Precio', producto.precio);
+        if (nuevoPrecio === null) return;
+
+        const precioNum = parseFloat(nuevoPrecio);
+        if (!nuevoNombre || nuevoNombre.length < 3 || !nuevaDesc || nuevaDesc.length < 10 || isNaN(precioNum) || precioNum <= 0) {
+            alert('Datos inválidos. Operación cancelada.');
+            return;
+        }
+
+        producto.nombre = nuevoNombre.trim();
+        producto.descripcion = nuevaDesc.trim();
+        producto.precio = precioNum;
+
+        guardarDatos();
+        renderizarTarjetasMisProductos();
+        actualizarListaPublica();
+        alert('Producto actualizado');
+    }
+}
+
+// Manejar eliminación de producto
+function handleEliminarProducto(productoId) {
+    const producto = productos.find(p => p.id === productoId);
+    if (!producto) return;
+
+    if (typeof Swal !== 'undefined') {
+        Swal.fire({
+            title: '¿Eliminar producto?',
+            text: `Se eliminará "${producto.nombre}". Esta acción no se puede deshacer.`,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Sí, eliminar',
+            cancelButtonText: 'Cancelar'
+        }).then(result => {
+            if (result.isConfirmed) {
+                productos = productos.filter(p => p.id !== productoId);
+                guardarDatos();
+                renderizarTarjetasMisProductos();
+                actualizarListaPublica();
+                Swal.fire('Eliminado', 'El producto ha sido eliminado.', 'success');
+            }
+        });
+    } else {
+        if (confirm(`¿Eliminar "${producto.nombre}"?`)) {
+            productos = productos.filter(p => p.id !== productoId);
+            guardarDatos();
+            renderizarTarjetasMisProductos();
+            actualizarListaPublica();
+            alert('Producto eliminado');
+        }
+    }
+}
+
+// Util: escapar HTML en strings para evitar inyección simple
+function escapeHtml(str) {
+    if (!str && str !== 0) return '';
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
 
 // Validación en tiempo real para remover errores cuando el usuario corrige
 Object.values(camposFormularioEmprendimiento).forEach(campo => {

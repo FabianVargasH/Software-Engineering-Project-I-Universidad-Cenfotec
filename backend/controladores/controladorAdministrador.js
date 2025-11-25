@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:3000/api'; //Variable para que sea mas sencillo el tema de las rutas
+const API_BASE_URL = 'http://localhost:3000/api'; 
 
 const TransporteController = {
     

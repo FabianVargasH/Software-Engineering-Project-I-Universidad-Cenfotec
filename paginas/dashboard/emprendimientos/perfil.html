@@ -101,27 +101,30 @@
                             Nota: Todo producto agregado pasa por un sistema de aprobación/rechazo
                         </p>
                     </div>
-                    <!-- Sección Mis Productos -->
+                    <!-- Sección Mis Productos (diseño actualizado) -->
                     <div class="contenedor_formulario">
-                        <h2 class="titulo_principal">Mis productos</h2>
-                        
+                        <h2 class="titulo_seccion">Mis productos</h2>
+
                         <div class="seccion_formulario">
-                            <select class="txt_campo">
-                                <option value="" selected disabled>Emprendimiento</option>
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                                <option value="4">Option 4</option>
+                            <label class="etiqueta_formulario" for="selectEmprendimiento">Seleccionar emprendimiento</label>
+                            <select id="selectEmprendimiento" class="txt_campo">
+                                <option value="" selected disabled>Elige un emprendimiento</option>
+                                <option value="1">Emprendimiento 1</option>
+                                <option value="2">Emprendimiento 2</option>
+                                <option value="3">Emprendimiento 3</option>
+                                <option value="4">Emprendimiento 4</option>
                             </select>
                         </div>
-                    
-                        <textarea class="txt_campo_jc_2" readonly rows="5">
-                        [Nombre producto]
-                            Descripción
-                            [precio]
-                            Condición</textarea>
-                        <div class="enlace_navegacion">
-                            <button type="button" class="btn_secundario">Eliminar</button>
+
+                        <!-- Contenedor de tarjetas de producto (centrado y responsivo) -->
+                        <div style="display:flex; justify-content:center;">
+                            <div class="contenedor_tarjetas" id="misProductosGrid" style="margin-top:10px; justify-content: center; max-width:760px; width:100%; gap:20px; display:flex; flex-wrap:wrap; align-items:flex-start;">
+                                <!-- Aquí se renderizan las tarjetas desde JS -->
+                            </div>
+                        </div>
+
+                        <div class="enlace_navegacion" style="margin-top:20px;">
+                            <a href="./../emprendimientos/lista_publica.html" class="enlace_administrador">Ver todos los productos</a>
                         </div>
                     </div>
                 </div>
